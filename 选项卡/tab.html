@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style type="text/css">
+		*{
+			padding:0px;
+			margin:0px;
+
+		}
+        .wrapper{
+        	width:650px;
+        	margin:100px auto;
+        	border:1px solid black;
+        }
+
+        .menu{
+        	width:100%;
+        	height:50px;
+        	border:1px solid black;
+
+        }
+        .menu ul{
+        	list-style:none;
+        	width:100%;
+        	height:50px;
+        	background-color: #00ffff;
+        }
+        .menu ul li{
+        	float:left;
+        	margin-left: 10px;
+        	margin-top: 10px;
+        	width:110px;
+        	height:40px;
+            text-align: center;
+        	line-height:40px;
+        	border:1px solid black;
+        	 
+        	 
+        }
+        
+         .menu ul li:hover{
+         	cursor: pointer;
+         }
+        .menu ul .active{
+        	background-color: #ffeddc;
+        }
+        .content{
+        	width:100%;
+        	 
+        	 
+        }
+
+        .content div{
+        	width:100%;
+        	height:500px;
+        	border:1px solid black;
+        	display: none;
+        }
+        .content div img{
+        	width:650px;
+        	height:550px;
+        	background-size: 100% 100%;
+
+        }
+
+        .content .content1{
+        	display: block;
+        	background-color: #ffeddc;
+        }
+
+        body{
+        	background-color: #66ffde
+        }
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="menu">
+			<ul>
+				<li class = "active">宋婷</li>
+				<li>夏蔷彬</li>
+				<li>还是宋婷</li>
+				<li>还是蔷彬</li>
+				<li>还是最帅</li>
+			</ul>
+		</div>
+
+		<div class="content">
+			<div class = "content1"><img src="song1.jpg" alt="" title="this is a little pig"></div>
+			<div><img src="xia1.jpg" alt="" title="this is a big pig"></div>
+			<div><img src="song2.jpg" alt="" title="爱哭"></div>
+			<div><img src="xia2.jpg" alt="" title="爱吃"></div>
+			<div><img src="song3.jpg" alt="" title="handsome"></div>
+		</div>
+
+
+	</div>
+
+	<script type="text/javascript">
+		var li = document.getElementsByTagName('li');
+		var content = document.getElementsByClassName('content')[0];
+		var contentChild = content.children;
+		for(var i = 0 ; i < li.length ; i++){
+			li[i].index = i;
+			li[i].onclick = function(){
+				for(var j = 0 ; j < li.length ; j ++){
+					contentChild[j].className = "";
+					li[j].className = "";
+
+				}
+				contentChild[this.index].className = "content1";
+				li[this.index].className = "active";
+			}
+
+
+		}
+	</script>
+	
+</body>
+</html>
