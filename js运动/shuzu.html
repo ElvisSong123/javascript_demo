@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组</title>
+</head>
+<body>
+ <script type="text/javascript">
+ 	// var arr = "https://www.jd.com/?cu=true&utm;_source=cps.youmai.com&utm;_medium=tuiguang&utm_;campaign=t_1000049399_54029923&utm;_term=3d48f1fa770d4b05bc4fe0fcc4359b8e";
+ 	// String.prototype.change = function(){
+ 	// 	var newArr = arr.split(";");
+ 	// 	console.log(newArr);
+ 	// 	var list = {};
+  //       newArr.reduce(function(previousEle,currentEle,index,self){
+  //           var newArr1 = currentEle.split('=');
+           
+  //            previousEle[newArr1[0]] = newArr1[1];
+  //            return previousEle;
+              
+  //       },list)
+  //       return list;
+ 	// }
+ 	// var obj1 = arr.change();
+ 	// console.log(obj1);
+
+
+
+//找出数组对应的索引
+//  	var arr = [1,2,3,4,5,6,7,7];
+//  	function index(arra,num){
+//  		var low = 0;
+//  		var high = arra.length - 1;
+//  		var mid;
+//         if(num == null){
+//         	return -1;
+//         }
+//         while(low <= high){
+//           mid = parseInt((low + high) / 2);
+//          if(arra[mid] == num){
+//         	return  mid;
+         
+//         }else if(arra[mid] > num){
+//         	high = mid - 1;
+//         }else if(arra[mid] < num){
+//         	low = mid + 1;
+//          }
+//         }
+//         return -1;
+       
+//  	}
+// console.log( index(arr ));
+
+//判断是否为对称数组
+
+// var arr = ['a','b','c','c','b','a',1];
+// var arr1 = ['a','b','c','d','c','b','a'];
+
+// function same(arra){
+//   var low = 0; 
+//   var high = arra.length - 1;
+//   while(low != high || high - low == 1){
+//   	 if(arra[low] == arra[high]){
+//   		low ++;
+//   		high --;
+
+//      }else{
+//      	return false;
+//      }
+//   }
+//   return true;
+
+
+// }
+// console.log(same(arr1));
+
+var str = 'abcbcxyxyz';
+
+// function test(arra,target){
+// 	var arr = arra.split('');
+// 	var i = 0;
+// 	var j = 0;
+// 	while(j != target.length -1){
+    
+// 	   var I = i + j;
+// 	   if(arra[I] == target[j]){
+// 		    j ++;
+// 	   }else{
+// 			i ++; 
+// 			j = 0;
+// 			if(i == arra.length ){
+// 				return false;
+// 			}
+// 	  }
+
+// 	}
+// 	return i;
+
+// }
+
+function test(arra,target){
+	for(var i = 0 ; i < arra.length ; i ++){
+		for(var j = 0 ; j < target.length ; j ++){
+			if(arra[i + j] != target[j]){
+				break;
+			}
+			if(j == target.length - 1){
+				return i;
+			}
+		}
+	}
+	return -1;
+}
+
+console.log(test(str,'cxy')); 
+
+ </script>
+}
+</body>
+</html>

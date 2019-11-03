@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动栏</title>
+	<style type="text/css">
+		*{
+			padding:0px;
+			margin:0px;
+
+		}
+		.bar1,.bar2,.bar3{
+			position:absolute;
+			
+			left:-408px;
+			list-style: none;
+			width:408px;
+		}
+		.bar1{
+			top:300px;
+		}
+		.bar2{
+			top:100px;
+		}
+	    .bar3{
+			top:500px;
+		}
+		.bar1:after,.bar2:after,.bar3:after{
+			content:"";
+			display:block;
+			clear:both;
+		}
+		  li{
+			float:left;
+			text-align: center;
+			
+        }
+        li a {
+        	display:inline-block;
+        	background-color:orange;
+        	width:100px;
+			height:50px;
+			border:1px solid white;
+			font-size: 16px;
+			line-height: 50px;
+			text-decoration: none;
+			color:white;
+			font-weight: bold;
+
+        }
+          span{
+        	position:absolute;
+            top:0px;
+        	right:-50px;
+        	width:50px;
+        	height:104px;
+        	
+        	background-color: #ffddcd;
+        	text-align: center;
+        	line-height: 104px;
+        	
+        }
+	</style>
+</head>
+<body>
+	<ul class = "bar1">
+	<li><a href="https://www.baidu.com" target="_blank">茄子</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">茄子</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">茄子</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">茄子</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">茄子</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">茄子</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">茄子</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">茄子</a></li>
+	<span>drag</span>
+	</ul>
+
+	<ul class = "bar2">
+	<li><a href="https://www.baidu.com" target="_blank">订票</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">订票</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">订票</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">订票</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">订票</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">订票</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">订票</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">订票</a></li>
+	<span>drag</span>
+	</ul>
+
+	<ul class = "bar3">
+	<li><a href="https://www.baidu.com" target="_blank">购物</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">购物</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">购物</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">购物</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">购物</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">购物</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">购物</a></li>
+	<li><a href="https://www.baidu.com" target="_blank">购物</a></li>
+	<span>drag</span>
+	</ul>
+<script type="text/javascript">
+	var ul = document.getElementsByTagName("ul");
+	var speed = null;
+	var timer = null;
+	for(var i = 0 ; i < ul.length ; i++){
+	ul[i].onmouseover = function(){
+       startMove(this,0);
+	}
+	ul[i].onmouseleave = function(){
+       startMove(this,-408)
+	}
+   
+	}
+
+   function startMove(demo,target){
+       clearInterval(demo.timer);
+       demo.timer = setInterval(function(){
+       	  speed = (target - demo.offsetLeft ) / 7;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          if(demo.offsetLeft == target){
+          	clearInterval(demo.timer);
+
+          }else{
+       	   demo.style.left = demo.offsetLeft + speed + "px";
+
+          }
+
+       },30)
+       
+
+   }
+</script>
+
+	
+</body>
+</html>

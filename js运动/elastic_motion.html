@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性运动</title>
+	<style type="text/css">
+		.wrapper{
+			width:100px;
+			height:100px;
+			background-color: red;
+			position:absolute;
+		  	top:0px;
+		  	left:0px;
+		}
+		.centerObj {
+			width:0px;
+			height:200px;
+			border:1px solid black;
+			position:absolute;
+			top:0px;
+			left:400px;
+		}
+		*{
+			padding:0;
+			margin:0;
+		}
+         
+
+	</style>
+</head>
+<body>
+	<div class = "wrapper"></div>
+	<div class="centerObj"></div>
+	<script type="text/javascript">
+		var wrapper = document.getElementsByClassName('wrapper')[0];
+		var timer = null;
+        wrapper.onclick = function(){
+        	startMove(wrapper,400);
+        }
+        function startMove(ele,distance){
+        	var speed;
+        	var a = null;
+        	var firstSpeed = 500;
+        	clearInterval(timer);
+        	timer = setInterval(function(){
+                 
+            a = (distance - ele.offsetLeft) / 7;
+            firstSpeed = firstSpeed + a;
+
+            ele.style.left = ele.offsetLeft + firstSpeed + "px";
+            firstSpeed = firstSpeed * 0.9;
+           
+            if( Math.abs(firstSpeed) < 1 && ele.offsetLeft == distance){
+            	firstSpeed = 0 ;
+            	clearInterval(timer);
+            	 
+            }
+
+        	},30)
+
+        }
+	</script>
+</body>
+</html>
