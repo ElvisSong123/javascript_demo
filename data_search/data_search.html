@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据搜索</title>
+	<style type="text/css">
+	*{
+		padding:0;
+		margin:0;
+	}
+		.wrapper{
+		 
+           padding:10px 10px;
+			margin:100px auto 0px;
+			width:480px;
+			 
+			border:1px solid #00ffff;
+		}
+		.leftTop{
+		 
+			width:230px;
+			height:40px;
+			 
+			 
+		}
+		.rightTop{
+			 
+			/*margin:10px 10px;*/
+			 
+			 
+		}
+		.rightTop span{
+			display: inline-block;
+			width:60px;
+			height:38px;
+			 
+			line-height: 38px;
+			color:#0000ff;
+			text-align: center;
+			border-radius: 5px;
+
+		}
+		.rightTop .eleActive{
+			background-color: #0000ff;
+			color:white;
+		}
+		.textWrapper{
+		
+			/*margin-left: 10px;*/
+			margin-bottom: 10px;
+			width:460px;
+			 
+			list-style: none;
+
+
+		}
+
+		.textWrapper li{
+			position: relative;
+		    padding-left: 55px;
+			left: 0px;
+		
+			height:60px;
+			border-bottom:1px solid #00ffee;
+
+		}
+		
+
+		.textWrapper li img{
+			position: absolute;
+			top:0px;
+			left:0px;
+			display:inline-block;
+			width:50px;
+			height:50px;
+			background-size: 100% 100%;
+
+			 
+			 
+		}
+
+	  .textWrapper li span{
+	  /*	position: absolute;*/
+	  	display: block;
+	  	margin-top: 10px;
+	  	
+
+	   
+
+	  }
+	  .special{
+	  	font-size: 14px;
+	  	color:#00aa44;
+	  
+	  }
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		
+		<div class="rightTop">
+			<input type="text" class="leftTop">
+			<span sex = "male">Male</span>
+			<span sex = "female">Female</span>
+			<span  sex = "all" class= "eleActive">All</span>
+		</div>
+		<ul class="textWrapper">
+			 
+		</ul>
+	</div>
+
+	<script type="text/javascript" src = "index.js"></script>
+</body>
+</html>
