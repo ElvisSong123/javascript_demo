@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟重力场</title>
+	<style type="text/css">
+		.wrapper{
+			position:absolute;
+			top:0px;
+			left:0px;
+			width:100px;
+			height:100px;
+			background-color: orange;
+		}
+		*{
+			padding:0;
+			margin:0;
+		}
+          
+	</style>
+</head>
+<body>
+	<div class="wrapper"></div>
+	<script type="text/javascript">
+		var wrapper = document.getElementsByClassName('wrapper')[0];
+		var timer;
+		wrapper.onclick = function(){
+			startMove(wrapper,6,8);
+		}
+		function startMove(ele,leftspeed,heightspeed){
+			clearInterval(timer);
+			var newLeft = 0;
+			var newHeight = 0;
+			var innerH;
+			var innerW;
+			var g = 3
+			 
+			var firstspeed = 0 ;
+			timer = setInterval(function(){
+			   heightspeed += g;
+               newHeight = ele.offsetTop + heightspeed;
+               newLeft = ele.offsetLeft + leftspeed;
+               innerW = window.innerWidth;
+               innerH = window.innerHeight;
+               eleHeight = ele.offsetHeight;
+               eleWidth = ele.offsetWidth;
+               if(newHeight >= innerH - eleHeight){
+                    newHeight = innerH - eleHeight;
+                    heightspeed *= -1;
+                    heightspeed *= 0.8;
+                    leftspeed *= 0.8;
+                 }
+               if(newHeight <= 0){
+                    newHeight = 0;
+                    heightspeed *= -1;
+                    heightspeed *= 0.8;
+                    leftspeed *= 0.8;
+                 }
+               if(newLeft >= innerW - eleWidth){
+                    newLeft = innerW - eleWidth;
+                    leftspeed *= -1;
+                    heightspeed *= 0.8;
+                    leftspeed *= 0.8;
+                 }
+               if(newLeft <= 0){
+                    newLeft = 0;
+                    leftspeed *= -1;
+                    heightspeed *= 0.8;
+                    leftspeed *= 0.8;
+                 } 
+                 if(Math.abs(leftspeed) < 1){
+                 	leftspeed = 0;
+                 }
+                 if(Math.abs(heightspeed) < 1){
+                 	heightspeed = 0;
+                 }
+                 if(leftspeed == 0 && heightspeed == 0 && newHeight == innerH - eleHeight){
+                 	clearInterval(timer);
+                 }else{
+                 	  ele.style.left = newLeft + "px";
+               ele.style.top = newHeight + "px";
+                 }
+             
+            
+
+
+
+
+			},30)
+
+		}
+	</script>
+</body>
+</html>
